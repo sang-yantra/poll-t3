@@ -1,9 +1,10 @@
+import { PrismaClient } from '@prisma/client'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 
 import {prisma} from "../db/client"
-const Home: NextPage = (props) => {
+const Home: NextPage = (props: any) => {
   return (
     <div>
       <Head>
