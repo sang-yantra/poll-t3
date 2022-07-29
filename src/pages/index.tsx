@@ -13,7 +13,9 @@ const Home: NextPage = (props: any) => {
   if(isLoading || !data){
     return (<div>Loading...</div>)
   }else{
-    return (<div>{data[0]?.question}</div>)
+    return (<div>{data.map(poll => {
+      return (<div key={poll.id}>{poll.question}</div>)
+    })}</div>)
   }
 }
 
