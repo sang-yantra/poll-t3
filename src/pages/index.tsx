@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import {prisma} from "../db/client"
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
   return (
     <div>
       <Head>
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <h1>WELCOME dfsdfsfs</h1>
         <code>
           {
-            ///props.questions
+            props.questions
           }
         </code>
       </main>
@@ -26,14 +26,14 @@ const Home: NextPage = () => {
   )
 }
 
-// export const getServerSideProps = async () => {
+export const getServerSideProps = async () => {
 
-//   const questions = await prisma.pollQuestion.findMany();
-//   return {
-//     props : {
-//       questions: JSON.stringify(questions)
-//     }
-//   }
-// }
+  const questions = await prisma.pollQuestion.findMany();
+  return {
+    props : {
+      questions: JSON.stringify(questions)
+    }
+  }
+}
 
 export default Home
